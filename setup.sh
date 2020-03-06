@@ -20,3 +20,11 @@ apt-get install -y build-essential git fail2ban ufw vim
 ./hostname.sh $HOSTNAME
 ./sysctl.sh
 ./docker.sh
+
+adduser --disabled-password --gecos "Robert Kaye" robert
+adduser robert sudo
+adduser robert docker
+
+sudo su - robert
+
+read -p "Press enter to reboot"
