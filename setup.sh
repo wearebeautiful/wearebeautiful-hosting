@@ -26,6 +26,12 @@ adduser --disabled-password --gecos "Robert Kaye" robert
 adduser robert sudo
 adduser robert docker
 
+echo "%sudo   ALL=(ALL:ALL) NOPASSWD:ALL"
+read -p "Now set up sudo and make sure to fix the %sudo line to look like the one above"
+export VISUAL=vim
+visudo
+
+read -p "Now setup your own account."
 sudo su - robert
 
 echo "Setup complete! Make sure to setup a user account with an SSH key before rebooting!"
