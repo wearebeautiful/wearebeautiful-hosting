@@ -3,7 +3,7 @@
 WAB_DOMAIN=wearebeautiful.info
 SRC_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-echo "---- START NGINX"
+echo "---- start nginx proxy, le"
 
 docker network create wab-network
 
@@ -28,14 +28,7 @@ docker run -d \
    --network=wab-network \
    jrcs/letsencrypt-nginx-proxy-companion
 
-
-echo "---- wab-web"
-
-cd ../wearebeautiful-web
-./start-containers.sh
-cd -
-
-echo "---- wab-logs"
+echo "---- start wearebeautiful-logs"
 docker run -d \
     --name wab-logs \
     -v /home/wab/logs:/var/log/nginx \
@@ -47,4 +40,9 @@ docker run -d \
     --network=wab-network \
     wearebeautiful-logs
 
-echo "---- DONE"
+echo "---- start wearebeautiful-web"
+cd ../wearebeautiful-web
+./start-containers.sh
+cd -
+
+echo "---- done"
