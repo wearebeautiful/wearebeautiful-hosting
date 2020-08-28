@@ -29,6 +29,10 @@ adduser robert docker
 adduser --disabled-password --gecos "WAB website" wab
 adduser wab sudo
 adduser wab docker
+mkdir /home/wab/logs
+chown 101:101 /home/wab/logs
+mkdir /home/wab/goaccess
+mkdir /home/wab/goaccess-html
 
 echo "%sudo   ALL=(ALL:ALL) NOPASSWD:ALL"
 read -p "Now set up sudo and make sure to fix the %sudo line to look like the one above"
