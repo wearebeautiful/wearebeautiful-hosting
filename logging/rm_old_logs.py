@@ -4,7 +4,7 @@ import datetime
 import os
 import sys
 
-DAYS_TO_KEEP_LOGS = 7
+DAYS_TO_KEEP_LOGS = 4
 
 def remove_old_logs(log_dir):
 
@@ -19,11 +19,13 @@ def remove_old_logs(log_dir):
 
         dt = datetime.datetime.strptime(date, '%Y-%m-%d')
         days_old = (datetime.datetime.now() - dt).days
-        print("%s %d days old" % (dir, days_old))
+        print("%s %d days old" % (dir, days_old), end='')
         if days_old >= DAYS_TO_KEEP_LOGS:
             rmlog = os.path.join(log_dir, dir)
-            print("  rm -rf %s" % rmlog)
+            print(", removed.", end='')
             os.unlink(rmlog)
+
+        print()
 
 
 if __name__ == "__main__":

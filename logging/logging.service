@@ -23,3 +23,5 @@ goaccess -c $LOGFILE \
          --port=8001 \
          --ws-url=localhost \
          --html-report-title="We Are Beautiful Server Stats"
+
+/code/rm_old_logs.py /var/log/nginx
