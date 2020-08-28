@@ -29,10 +29,22 @@ docker run -d \
    jrcs/letsencrypt-nginx-proxy-companion
 
 
-echo "---- WEAREBEAUTIFUL.INFO"
+echo "---- wab-web"
 
 cd ../wearebeautiful-web
 ./start-containers.sh
 cd -
+
+echo "---- wab-logs"
+docker run -d \
+    --name wab-logs \
+    -v /home/wab/logs:/var/log/nginx \
+    -v /home/wab/goaccess:/goaccess \
+    -v /home/wab/goaccess-html:/html \
+    -p "8000:8000" \
+    -p "8001:8001" \
+    --restart unless-stopped \
+    --network=wab-network \
+    wearebeautiful-logs
 
 echo "---- DONE"
