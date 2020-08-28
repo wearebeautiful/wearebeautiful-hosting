@@ -1,0 +1,28 @@
+FROM ubuntu:20.04
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+         ca-certificates \
+         build-essential \
+         python3 \
+         wget \
+         libncursesw5-dev \
+         daemonize \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /make
+RUN wget https://tar.goaccess.io/goaccess-1.4.tar.gz && \
+    tar -xzvf goaccess-1.4.tar.gz && \
+    cd goaccess-1.4/ && \
+    ./configure --enable-utf8 && \
+    make && \
+    make install    
+    
+RUN apt-get purge -y build-essential && \
+    apt-get autoremove -y && \
+    apt-get clean -y
+
+WORKDIR /code
+COPY . /code
+
+CMD /code/logging.sh
