@@ -17,7 +17,9 @@ goaccess -c $LOGFILE \
          --real-time-html \
          -o /html/index.html \
          --restore \
+         --persist \
          --db-path /goaccess \
          --addr=0.0.0.0 \
          --port=8001 \
-         --ws-url=localhost
+         --ws-url=localhost \
+         --html-report-title="We Are Beautiful Server Stats"
