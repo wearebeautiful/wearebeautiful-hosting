@@ -2,14 +2,7 @@
 
 # Most bits gratuituously stolen from the MetaBrainz server setup scripts.
 
-if [[ $# == 0 || $1 == --help ]]; then
-    echo "$0 NAME"
-    echo "Set hostname to NAME.$DOMAIN on hetzner machines"
-    exit 0
-fi
-
-HOSTNAME=$0
-
+HOSTNAME=`hostname`
 echo "Settting up $HOSTNAME..."
 
 apt-get update
