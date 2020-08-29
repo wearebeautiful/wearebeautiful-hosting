@@ -18,6 +18,7 @@ docker run -d \
     influxdb:1.7.10
 
 echo "---- start telegraf"
+sed 's/%hostname%/penis/g' telegraf.conf.in > telegraf.conf
 docker run -d \
     --name telegraf \
     --network=wab-network \
