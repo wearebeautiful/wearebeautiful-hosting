@@ -27,12 +27,12 @@ chown 101:101 /home/wab/logs
 mkdir /home/wab/goaccess
 mkdir /home/wab/goaccess-html
 
-echo "%sudo   ALL=(ALL:ALL) NOPASSWD:ALL"
-read -p "Now set up sudo and make sure to fix the %sudo line to look like the one above"
-export VISUAL=vim
-visudo
+install -m 440 sudoers /etc/sudoers.d/90-wab
 
-read -p "Now setup your own account."
-sudo su - robert
+# install authorized_keys for users
+mkdir /home/robert/.ssh
+chmod a+rx /home/robert/.ssh
+cp robert/pub /home/robert/.ssh/authorized_keys
+chmod 0600 /home/robert/.ssh/authorized_keys
 
-echo "Setup complete! Make sure to setup a user account with an SSH key before rebooting!"
+echo "Setup complete!"
