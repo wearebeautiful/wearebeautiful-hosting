@@ -32,7 +32,8 @@ install -m 440 sudoers /etc/sudoers.d/90-wab
 # install authorized_keys for users
 mkdir /home/robert/.ssh
 chmod a+rx /home/robert/.ssh
-cp robert/pub /home/robert/.ssh/authorized_keys
+cp robert.pub /home/robert/.ssh/authorized_keys
+chown robert:robert /home/robert/.ssh/authorized_keys
 chmod 0600 /home/robert/.ssh/authorized_keys
 
 echo "Setup complete!"
