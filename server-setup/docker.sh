@@ -1,11 +1,10 @@
 #!/bin/bash
 
-# Stop docker from changing iptables
+# Setup docker config
 mkdir -p /etc/docker/
 cat <<EOF >daemon.json
 {
     "dns": ["8.8.8.8", "8.8.4.4"],
-    "iptables": false,
     "log-driver": "json-file",
     "log-opts": {
       "max-size": "10m",
