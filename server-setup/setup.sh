@@ -9,10 +9,10 @@ apt-get update
 apt-get upgrade -y
 apt-get install -y build-essential git fail2ban ufw vim python3-dev python3-pip
 
-./firewall.sh
 ./hostname.sh $HOSTNAME
 ./sysctl.sh
 ./docker.sh
+./firewall.sh
 ./ssh.sh
 
 adduser --disabled-password --gecos "Robert Kaye" robert
