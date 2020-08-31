@@ -8,5 +8,5 @@ chmod +x /usr/local/bin/ufw-docker
 
 ufw enable
 ufw-docker install
-ufw route allow proto tcp from any to any port 22
 systemctl restart ufw
+ufw route allow proto tcp from any to any port 22
