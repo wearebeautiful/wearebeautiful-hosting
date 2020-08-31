@@ -46,6 +46,6 @@ cd ../wearebeautiful-web
 cd -
 
 echo "---- enable firewall ports for services"
-ufw-docker allow nginx 80
+sudo ufw-docker allow nginx 80
 
 echo "---- done"

@@ -33,3 +33,6 @@ goaccess -c $LOGFILE \
          --html-report-title="We Are Beautiful Server Stats"
 
 /code/rm_old_logs.py /var/log/nginx
+
+# In case we get stuck in a loop because of a dead log file. 
+sleep 5
