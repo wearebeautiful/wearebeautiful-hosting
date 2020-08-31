@@ -6,8 +6,5 @@ sed -i 's/^#& stop/\& stop/' /etc/rsyslog.d/20-ufw.conf && systemctl restart rsy
 wget -O /usr/local/bin/ufw-docker https://github.com/chaifeng/ufw-docker/raw/master/ufw-docker
 chmod +x /usr/local/bin/ufw-docker
 ufw-docker install
-
 ufw route allow proto tcp from any to any port 22
-
-ufw enable
-ufw status verbose
+systemctl restart ufw
