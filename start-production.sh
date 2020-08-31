@@ -45,4 +45,7 @@ cd ../wearebeautiful-web
 ./start-containers.sh
 cd -
 
+echo "---- enable firewall ports for services"
+ufw-docker allow nginx 80
+
 echo "---- done"

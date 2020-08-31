@@ -36,3 +36,4 @@ docker run -d \
     --restart unless-stopped \
     -v grafana-volume:/var/lib/grafana \
     grafana/grafana:7.1.5
+ufw-docker allow grafana 3000

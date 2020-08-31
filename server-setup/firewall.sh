@@ -7,6 +7,7 @@ wget -O /usr/local/bin/ufw-docker https://github.com/chaifeng/ufw-docker/raw/mas
 chmod +x /usr/local/bin/ufw-docker
 
 ufw enable
+ufw allow ssh
+
 ufw-docker install
 systemctl restart ufw
-ufw route allow proto tcp from any to any port 22
